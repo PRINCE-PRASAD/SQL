@@ -106,3 +106,24 @@ SELECT * FROM employee WHERE e_gender = 'female';
 
 SELECT * FROM employee WHERE e_salary >10000 ;
 (it will show only that table whoese salary more than 10000)
+
+## SELECT/SHOW ONLY IF BOTH CONDITION ARE TRUE (AND)
+
+SELECT * FROM employee WHERE e_gender='Male' AND e_age<30;
+
+SELECT * FROM employee WHERE e_dept='Analyst' AND e_salary>100000;
+
+
+## SELECT/SHOW IF ANY ONE OF THE CONDITION TRUE (OR)
+
+SELECT * FROM employee WHERE e_dept='Analyst' OR e_dept='Operations';
+
+SELECT * FROM employee WHERE e_salary>100000 OR e_age<30;
+
+## SELECT/SHOW ONLY IF CONDITION ARE TRUE (NOT)
+
+SELECT * FROM employee WHERE NOT e_gender='Female';
+
+SELECT * FROM employee where NOT e_Age<30;
+
+SELECT * FROM employee WHERE NOT e_age<30 ;
