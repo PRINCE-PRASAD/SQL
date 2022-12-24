@@ -124,6 +124,4 @@ SELECT * FROM employee WHERE e_salary>100000 OR e_age<30;
 
 SELECT * FROM employee WHERE NOT e_gender='Female';
 
-SELECT * FROM employee where NOT e_Age<30;
-
 SELECT * FROM employee WHERE NOT e_age<30 ;
