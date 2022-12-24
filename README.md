@@ -95,7 +95,7 @@ SELECT e_name, e_salary, e_age FROM employee;
 
 SELECT * FROM employee;
 
-## Show or Select the Different Record of particular fields
+## Show or Select Only the Different Record of particular fields
 
 SELECT DISTINCT e_gender FROM employee;
 
