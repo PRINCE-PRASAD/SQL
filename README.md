@@ -1,4 +1,3 @@
-
 # SQL
 
 ## Data
@@ -84,4 +83,20 @@ insert into employee values(
 6,'Anay', 12500, 20, 'Female', 'Analyst'
 );
 
+## Show or Select the entire Record of particular fields
 
+SELECT e_name FROM employee;
+
+## Show or Select the entire Record of multiple fields
+
+SELECT e_name, e_salary, e_age FROM employee;
+
+## For Total Record and Fields of Table
+
+SELECT * FROM employee;
+
+## Show or Select the Different Record of particular fields
+
+SELECT DISTINCT e_gender FROM employee;
+
+## 
