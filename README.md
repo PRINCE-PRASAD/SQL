@@ -95,8 +95,14 @@ SELECT e_name, e_salary, e_age FROM employee;
 
 SELECT * FROM employee;
 
-## Show or Select Only the Different Record of particular fields
+## Show or Select the Different Record(values) of particular fields
 
 SELECT DISTINCT e_gender FROM employee;
 
-## 
+## For Filter the Record(Values) from the all table
+
+SELECT * FROM employee WHERE e_gender = 'female';
+(it will show only female gender)
+
+SELECT * FROM employee WHERE e_salary >10000 ;
+(it will show on;y that table whoese salary more than 10000)
