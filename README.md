@@ -105,4 +105,4 @@ SELECT * FROM employee WHERE e_gender = 'female';
 (it will show only female gender)
 
 SELECT * FROM employee WHERE e_salary >10000 ;
-(it will show on;y that table whoese salary more than 10000)
+(it will show only that table whoese salary more than 10000)
