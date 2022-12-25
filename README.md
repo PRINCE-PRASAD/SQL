@@ -120,7 +120,7 @@ SELECT * FROM employee WHERE e_dept='Analyst' OR e_dept='Operations';
 
 SELECT * FROM employee WHERE e_salary>100000 OR e_age<30;
 
-## SELECT/SHOW ONLY IF CONDITION ARE TRUE (NOT)
+## SELECT/SHOW ONLY IF CONDITION ARE NOT TRUE (NOT)
 
 SELECT * FROM employee WHERE NOT e_gender='Female';
 
