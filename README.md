@@ -251,3 +251,26 @@ RESULT
 4	suman   5000	36	female  Operations
 2	bob	85000	35	Male	Support
 ```
+
+# GROUP BY
+
+## GROUP BY is used to get aggregate result with respect to a group.
+
+```SQL 
+SELECT AVG(e_salary), e_gender FROM employee GROUP BY e_gender;
+```
+RESULT
+```SQL
+ 50000	female
+260631	  Male
+```
+```SQL
+SELECT AVG(e_age), e_dept FROM employee GROUP BY e_dept ORDER BY AVG(e_age)DESC;
+```
+RESULT
+```SQL
+40	Operations
+30	Support
+25	Analyst
+22	head
+```
