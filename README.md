@@ -125,3 +125,47 @@ SELECT * FROM employee WHERE e_salary>100000 OR e_age<30;
 SELECT * FROM employee WHERE NOT e_gender='Female';
 
 SELECT * FROM employee WHERE NOT e_age<30 ;
+
+## LIKE Operator used to extract records where a particular pattern is present
+
+Here '%' and ' _ ' are wild card characters '%' Represents Zero, one or Multiple Characters and ' _ ' Represents Single characters.
+
+SELECT * FROM employee WHERE e_name LIKE 'B%';
+
+SELECT * FROM employee WHERE e_age LIKE '3_';
+
+## Between Operator is used to select values with in a Range.
+
+SELECT * FROM employee WHERE e_salary BETWEEN 50000 AND 100000;
+
+SELECT * FROM employee WHERE e_age BETWEEN 25 AND 30;
+
+# FUNCTIONS
+
+## MIN() functions gives you the smallest value From record of particular fields.
+
+SELECT MIN(e_age) FROM employee;
+
+SELECT MIN(e_salary) FROM employee;
+
+## MAX() functions gives you the Biggest value From record of particular fields.
+
+SELECT MAX(e_age) FROM employee;
+
+SELECT MAX(e_salary) FROM employee;
+
+## COUNT() Function returns the number of rows match the specific criteria
+
+SELECT COUNT(*) FROM employee WHERE e_gender = 'male';
+
+SELECT COUNT(*) FROM employee WHERE e_gender = 'Female';
+
+## SUM() function gives the total sum of numeric column
+
+SELECT SUM(e_salary) FROM employee;
+
+## AVG() Function gives the average value of numeric column
+
+SELECT AVG(e_age) FROM employee;
+
+SELECT AVG(e_salary) FROM employee;
