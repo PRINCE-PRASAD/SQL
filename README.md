@@ -274,3 +274,51 @@ RESULT
 25	Analyst
 22	head
 ```
+
+# HAVING Clause
+## HAVING CLAUSE is used in combination with GROUP BY to impose the condition on groups
+
+In this Queary firstly it select the avrage salary and department and then arrange group wise salary more than 10000 
+```sql
+SELECT e_dept, AVG(e_salary) AS avg_salary FROM employee GROUP BY e_dept HAVING AVG(e_salary)>10000;
+```
+RESULT 
+```SQL
+Analyst 	 68750
+head    	985656
+Operations   50000
+Support 	 90000
+```
+
+# UPDATE 
+## UPDATE is used to modify the existing records in a table.
+
+```sql
+UPDATE employee SET e_age=42 WHERE e_name ='sam';
+UPDATE employee SET e_dept='tech' WHERE e_gender='female';
+UPDATE employee SET e_salary=50000;
+SELECT * FROM employee;
+```
+RESULT
+```SQL
+1	sam	  50000	42	Male	Operations
+2	bob	  50000	35	Male	Support
+3	Ana	  50000	28	Male	Analyst
+4	suman    50000	36	female  tech
+5	boby     50000	25	Female  tech
+6	Aniy     50000	23	Male	Analyst
+7	mahashin 50000	22	Male	head
+```
+
+# DELETE 
+## DELETE statement is use to delete existing records in the table
+
+```sql
+DELETE FROM employee where e_age=42;
+```
+# TRUNCATE 
+## TRUNCATE Statement deletes all the data inside the table.
+```sql
+TRUNCATE TABLE employee;
+```
+It clear only data but structure of table remain constanst.
