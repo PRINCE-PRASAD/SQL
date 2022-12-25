@@ -322,3 +322,88 @@ DELETE FROM employee where e_age=42;
 TRUNCATE TABLE employee;
 ```
 It clear only data but structure of table remain constanst.
+
+# INNER JOIN
+## Inner Join returns records that have matching values in both the table. It is also known as simple join.
+
+first create two table
+
+```
+-- Table 1
+CREATE TABLE department(
+d_id int not null,
+d_name varchar(20),
+d_location varchar(20),
+primary key(d_id),
+);
+
+insert into department values(
+1,'Operations', 'France'
+);
+insert into department values(
+2,'Support', 'Germany'
+);
+insert into department values(
+3,'Analyst', 'Japan'
+);
+insert into department values(
+4,'Head', 'India'
+);
+insert into department values(
+5,'Tester', 'USA'
+);
+insert into department values(
+6,'Security', 'China'
+);
+insert into department values(
+7,'Client', 'Pakistan'
+);
+
+--Table-2
+CREATE TABLE employee(
+e_id int not null,
+e_name varchar(20),
+e_salary int,
+e_age int,
+e_gender varchar(20),
+e_dept varchar(20),
+primary key(e_id),
+);
+
+insert into employee values(
+1,'sam', 95000, 45, 'Male', 'Operations'
+);
+insert into employee values(
+2,'bob', 85000, 35, 'Male', 'Support'
+);
+insert into employee values(
+3,'Ana', 125000, 28, 'Male', 'Analyst'
+);
+insert into employee values(
+4,'sama', 5000, 25, 'Female', 'Operations'
+);
+insert into employee values(
+5,'boby', 8000, 21, 'Female', 'Support'
+);
+insert into employee values(
+6,'Anay', 12500, 20, 'Female', 'Analyst'
+);
+insert into employee values(
+7,'mahashin', 985656, 22, 'Male', 'head'
+);
+```
+```
+SELECT employee.e_name, employee.e_dept, department.d_name, department.d_location
+FROM employee
+INNER JOIN department ON employee.e_dept=department.d_name;
+```
+RESULT
+```
+sam	    Operations     Operations 	France
+bob	    Support	    Support	    Germany
+Ana	    Analyst	    Analyst	    Japan
+sama       Operations	 Operations 	France
+boby       Support	    Support	    Germany
+Anay       Analyst	    Analyst	    Japan
+mahashin   head	       Head	       India
+```
