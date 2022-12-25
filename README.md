@@ -162,3 +162,33 @@ SELECT SUM(e_salary) FROM employee;
 SELECT AVG(e_age) FROM employee;
 SELECT AVG(e_salary) FROM employee;
 ```
+
+# String Function
+
+## LTRIM() Remove the blanks on the left side of the character expression
+```sql
+SELECT '     SPARTA';
+SELECT LTRIM('     SPARTA');
+```
+
+## LOWER() Converts all the characters to lower case letters
+```sql
+SELECT 'THIS IS TOTALLY DONE FOR PRINCE';
+SELECT LOWER('THIS IS TOTALLY DONE FOR PRINCE');
+```
+## UPPER() Converts all the characters to upper case letters
+```sql
+SELECT 'this is totally done for prince';
+SELECT UPPER('this is totally done for prince');
+```
+## REVERSE() Converts all the characters in the string
+```sql
+SELECT 'i love coding';
+SELECT REVERSE('i love coding');
+```
+## SUBSTRING() Give a substring from the orignal string
+```sql
+SELECT 'i love coding';
+SELECT SUBSTRING('i love coding',8,13);
+--We get the result coding
+```
