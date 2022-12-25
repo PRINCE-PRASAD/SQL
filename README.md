@@ -64,13 +64,16 @@ insert into employee values(
 3,'Ana', 125000, 28, 'Male', 'Analyst'
 );
 insert into employee values(
-4,'sama', 5000, 25, 'female', 'Operations'
+4,'sama', 5000, 25, 'Female', 'Operations'
 );
 insert into employee values(
 5,'boby', 8000, 21, 'Female', 'Support'
 );
 insert into employee values(
 6,'Anay', 12500, 20, 'Female', 'Analyst'
+);
+insert into employee values(
+7,'mahashin', 985656, 22,	'Male', 'head'
 );
 ```
 
