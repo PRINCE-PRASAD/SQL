@@ -24,148 +24,139 @@ SQL stands for Structured Query Language. SQL is the standard language for deali
 
 
 ### Create Database
-
+```sql
 CREATE DATABASE databasename;
-
 ### For Using Existing Database
-
 USE [datbasename];
+```
 
 ### For Delete any Database
-
+```sql
 DROP DATABASE databasename;
-
+```
 ### For creating fields in table
 
 example-
-
+```sql
 CREATE TABLE employee(
-
 e_id int not null,
-
 e_name varchar(20),
-
 e_salary int,
-
 e_age int,
-
 e_gender varchar(20),
-
 e_dept varchar(20),
-
 primary key(e_id),
-
 );
+```
 
 ## Inserting the Records
 
+```sql
 insert into employee values(
 1,'sam', 95000, 45, 'Male', 'Operations'
 );
-
 insert into employee values(
 2,'bob', 85000, 35, 'Male', 'Support'
 );
-
 insert into employee values(
 3,'Ana', 125000, 28, 'Male', 'Analyst'
 );
-
 insert into employee values(
 4,'sama', 5000, 25, 'female', 'Operations'
 );
-
 insert into employee values(
 5,'boby', 8000, 21, 'Female', 'Support'
 );
-
 insert into employee values(
 6,'Anay', 12500, 20, 'Female', 'Analyst'
 );
+```
 
 ## Show or Select the entire Record of particular fields
-
+```sql
 SELECT e_name FROM employee;
+```
 
 ## Show or Select the entire Record of multiple fields
-
+```sql
 SELECT e_name, e_salary, e_age FROM employee;
+```
 
 ## For Total Record and Fields of Table
-
+```sql
 SELECT * FROM employee;
-
+```
 ## Show or Select the Different Record(values) of particular fields
-
+```sql
 SELECT DISTINCT e_gender FROM employee;
-
+```
 ## For Filter the Record(Values) from the all table
-
+```sql
 SELECT * FROM employee WHERE e_gender = 'female';
+```
 (it will show only female gender)
-
+```sql
 SELECT * FROM employee WHERE e_salary >10000 ;
+```
 (it will show only that table whoese salary more than 10000)
 
 ## SELECT/SHOW ONLY IF BOTH CONDITION ARE TRUE (AND)
-
+```sql
 SELECT * FROM employee WHERE e_gender='Male' AND e_age<30;
-
 SELECT * FROM employee WHERE e_dept='Analyst' AND e_salary>100000;
-
+```
 
 ## SELECT/SHOW IF ANY ONE OF THE CONDITION TRUE (OR)
-
+```sql
 SELECT * FROM employee WHERE e_dept='Analyst' OR e_dept='Operations';
-
 SELECT * FROM employee WHERE e_salary>100000 OR e_age<30;
+```
 
 ## SELECT/SHOW ONLY IF CONDITION ARE NOT TRUE (NOT)
-
+```sql
 SELECT * FROM employee WHERE NOT e_gender='Female';
-
 SELECT * FROM employee WHERE NOT e_age<30 ;
+```
 
 ## LIKE Operator used to extract records where a particular pattern is present
 
 Here '%' and ' _ ' are wild card characters '%' Represents Zero, one or Multiple Characters and ' _ ' Represents Single characters.
-
+```sql
 SELECT * FROM employee WHERE e_name LIKE 'B%';
-
 SELECT * FROM employee WHERE e_age LIKE '3_';
+```
 
 ## Between Operator is used to select values with in a Range.
-
+```sql
 SELECT * FROM employee WHERE e_salary BETWEEN 50000 AND 100000;
-
 SELECT * FROM employee WHERE e_age BETWEEN 25 AND 30;
-
+```
 # FUNCTIONS
 
 ## MIN() functions gives you the smallest value From record of particular fields.
-
+```sql
 SELECT MIN(e_age) FROM employee;
-
 SELECT MIN(e_salary) FROM employee;
+```
 
 ## MAX() functions gives you the Biggest value From record of particular fields.
-
+```sql
 SELECT MAX(e_age) FROM employee;
-
 SELECT MAX(e_salary) FROM employee;
+```
 
 ## COUNT() Function returns the number of rows match the specific criteria
-
+```sql
 SELECT COUNT(*) FROM employee WHERE e_gender = 'male';
-
 SELECT COUNT(*) FROM employee WHERE e_gender = 'Female';
+```
 
 ## SUM() function gives the total sum of numeric column
-
+```sql
 SELECT SUM(e_salary) FROM employee;
-
+```
 ## AVG() Function gives the average value of numeric column
-
+```sql
 SELECT AVG(e_age) FROM employee;
-
 SELECT AVG(e_salary) FROM employee;
+```
