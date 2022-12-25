@@ -192,3 +192,59 @@ SELECT 'i love coding';
 SELECT SUBSTRING('i love coding',8,13);
 --We get the result coding
 ```
+
+
+# 'ORDER BY' AND 'TOP' CLAUSE
+
+## ORDER BY is use to sort the data in ascending or descending order by default it is on asending order
+```SQL
+SELECT * FROM employee ORDER BY e_salary;
+-- BY DEFAULT IT IS ASSENDING ORDER 
+```
+RESULT
+```SQL
+4	suman   	5000	36	female	Operations
+6	Aniy    	12500	23	Male	Analyst
+2	bob     	85000	35	Male	Support
+5	boby    	95000	25	Female	Support
+1	sam     	95000	45	Male	Operations
+3	Ana     	125000	28	Male	Analyst
+7	mahashin	985656	22	Male	head
+```
+```SQL
+SELECT * FROM employee ORDER BY e_salary DESC;
+```
+
+RESULT
+```SQL
+7	mahashin	985656   22	Male	head
+3	Ana         125000   28	Male	Analyst
+1	sam	     95000	45	Male	Operations
+5	boby	    95000	25	Female  Support
+2	bob	     85000	35	Male	Support
+6	Aniy	    12500	23	Male	Analyst
+4	suman        5000	36	female  Operations
+```
+
+## TOP is use to fetch top n(number) records
+```sql
+SELECT TOP 3 * FROM employee;
+```
+RESULT
+```
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+3	Ana	125000   28	Male	Analyst
+```
+
+EXAMPLE FOR BOTH 'ORDER BY' AND 'TOP' CLAUSE
+
+```SQL
+SELECT TOP 3 * FROM employee ORDER BY e_age DESC;
+```
+RESULT
+```SQL
+1	sam	95000	45	Male	Operations
+4	suman   5000	36	female  Operations
+2	bob	85000	35	Male	Support
+```
