@@ -323,10 +323,9 @@ TRUNCATE TABLE employee;
 ```
 It clear only data but structure of table remain constanst.
 
-# INNER JOIN
-## Inner Join returns records that have matching values in both the table. It is also known as simple join.
+# JOIN
 
-first create two table
+First create two table
 
 ```
 -- Table 1
@@ -358,7 +357,8 @@ insert into department values(
 insert into department values(
 7,'Client', 'Pakistan'
 );
-
+```
+```
 --Table-2
 CREATE TABLE employee(
 e_id int not null,
@@ -391,12 +391,19 @@ insert into employee values(
 insert into employee values(
 7,'mahashin', 985656, 22, 'Male', 'head'
 );
+insert into employee values(
+8,'Prince', 1000000, 35, 'Male', 'CEO'
+);
 ```
-CODE
+
+## INNER JOIN returns records that have matching values in both the table. It is also known as simple join.
+
+
 ```
 SELECT employee.e_name, employee.e_dept, department.d_name, department.d_location
 FROM employee
-INNER JOIN department ON employee.e_dept=department.d_name;
+INNER JOIN department 
+ON employee.e_dept=department.d_name;
 ```
 RESULT
 ```
@@ -407,4 +414,66 @@ sama       Operations	 Operations 	France
 boby       Support	    Support	    Germany
 Anay       Analyst	    Analyst	    Japan
 mahashin   head	       Head	       India
+```
+## LEFT JOIN returns all the records from the left table, and the matched records from the right table.
+
+```
+SELECT employee.e_name, employee.e_dept, department.d_name, department.d_location 
+FROM employee
+LEFT JOIN department 
+ON employee.e_dept=department.d_name;
+```
+RESULT
+```
+sam	Operations	Operations	France
+bob   	Support	   Support	Germany
+Ana	   Analyst	   Analyst	Japan
+sam	Operations    Operations	France
+boby  	Support	   Support	Germany
+Anay  	Analyst	   Analyst	Japan
+mahashin 	head      	Head	India
+Prince    	CEO      	NULL	NULL
+```
+## RIGHT JOIN return all the records from the right table and matched records from left.
+
+```
+SELECT employee.e_name, employee.e_dept, department.d_name, department.d_location
+FROM employee
+RIGHT JOIN department 
+ON employee.e_dept=department.d_name;
+```
+RESULT
+```
+sam	Operations	Operations	France
+sama   Operations	Operations	France
+bob	   Support       Support	Germany
+boby      Support	   Support	Germany
+Ana	   Analyst       Analyst	Japan
+Anay      Analyst	   Analyst	Japan
+mahash   	head      	Head	India
+NULL     	NULL	    Tester	USA
+NULL         NULL	  Security	China
+NULL     	NULL    	Client	Pakistan
+```
+## FULL JOIN all rows from the LEFT table and RIGHT table with NULL values in place where the join condition is not met.
+
+```
+SELECT employee.e_name, employee.e_dept, department.d_name, department.d_location
+FROM employee
+FULL JOIN department 
+ON employee.e_dept=department.d_name;
+```
+RESULT
+```
+sam	Operations	Operations	France
+bob	   Support	   Support	Germany
+Ana	   Analyst	   Analyst	Japan
+sam    Operations	Operations	France
+boby      Support   	Support	Germany
+Anay      Analyst   	Analyst	Japan
+mahashin     head      	Head	India
+Prince        CEO      	NULL	NULL
+NULL     	NULL 	   Tester    USA
+NULL     	NULL      Security	China
+NULL     	NULL        Client	Pakistan
 ```
