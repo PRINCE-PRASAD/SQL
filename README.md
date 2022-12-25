@@ -392,6 +392,7 @@ insert into employee values(
 7,'mahashin', 985656, 22, 'Male', 'head'
 );
 ```
+CODE
 ```
 SELECT employee.e_name, employee.e_dept, department.d_name, department.d_location
 FROM employee
