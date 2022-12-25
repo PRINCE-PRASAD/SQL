@@ -73,7 +73,7 @@ insert into employee values(
 6,'Anay', 12500, 20, 'Female', 'Analyst'
 );
 insert into employee values(
-7,'mahashin', 985656, 22,	'Male', 'head'
+7,'mahashin', 985656, 22, 'Male', 'head'
 );
 ```
 
