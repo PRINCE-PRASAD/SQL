@@ -26,7 +26,9 @@ SQL stands for Structured Query Language. SQL is the standard language for deali
 ### Create Database
 ```sql
 CREATE DATABASE databasename;
+```
 ### For Using Existing Database
+```sql
 USE [datbasename];
 ```
 
