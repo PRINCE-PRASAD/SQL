@@ -327,7 +327,7 @@ It clear only data but structure of table remain constanst.
 
 First create two table
 
-```
+```sql
 -- Table 1
 CREATE TABLE department(
 d_id int not null,
@@ -358,7 +358,7 @@ insert into department values(
 7,'Client', 'Pakistan'
 );
 ```
-```
+```sql
 --Table-2
 CREATE TABLE employee(
 e_id int not null,
@@ -399,7 +399,7 @@ insert into employee values(
 ## INNER JOIN returns records that have matching values in both the table. It is also known as simple join.
 
 
-```
+```sql
 SELECT employee.e_name, employee.e_dept, department.d_name, department.d_location
 FROM employee
 INNER JOIN department 
@@ -417,7 +417,7 @@ mahashin   head	       Head	       India
 ```
 ## LEFT JOIN returns all the records from the left table, and the matched records from the right table.
 
-```
+```sql
 SELECT employee.e_name, employee.e_dept, department.d_name, department.d_location 
 FROM employee
 LEFT JOIN department 
@@ -436,7 +436,7 @@ Prince	   CEO         NULL	       NULL
 ```
 ## RIGHT JOIN return all the records from the right table and matched records from left.
 
-```
+```sql
 SELECT employee.e_name, employee.e_dept, department.d_name, department.d_location
 FROM employee
 RIGHT JOIN department 
@@ -457,7 +457,7 @@ NULL     	NULL    	Client	Pakistan
 ```
 ## FULL JOIN all rows from the LEFT table and RIGHT table with NULL values in place where the join condition is not met.
 
-```
+```sql
 SELECT employee.e_name, employee.e_dept, department.d_name, department.d_location
 FROM employee
 FULL JOIN department 
@@ -480,7 +480,7 @@ NULL     	NULL        Client	Pakistan
 
 ## UPDATE using Join
 
-```
+```sql
 UPDATE employee
 SET e_age=e_age+50
 FROM employee
@@ -502,7 +502,7 @@ RESULT
 ```
 
 ## DELETE using Join
-```
+```sql
 DELETE employee
 FROM employee
 JOIN department ON employee.e_dept=department.d_name
@@ -524,7 +524,7 @@ RESULT
 
 Create Two Table
 
-```
+```sql
 CREATE TABLE Student_Details1(
 s_id int not null,
 s_name varchar(20),
@@ -567,7 +567,7 @@ insert into Student_Details2 values(
 ```
 ## Union Operator - is used to combine the data from the result of two or more SELECT command queries into a single distinct result set.
 
-```
+```sql
 SELECT * FROM Student_Details1
 UNION
 SELECT * FROM Student_Details2;
@@ -584,7 +584,7 @@ RESULT
 
 ## Union All Operator - give all the rows from both the table including the duplicates.
 
-```
+```sql
 SELECT * FROM Student_Details1
 UNION ALL
 SELECT * FROM Student_Details2;
@@ -603,7 +603,7 @@ RESULT
 
 ## Except Operator - Combines two select statements and returns unique records from left query which are not part of the right query;
 
-```
+```sql
 SELECT * FROM Student_Details1
 EXCEPT
 SELECT * FROM Student_Details2;
@@ -615,7 +615,7 @@ RESULT
 ```
 
 ## INTERSECT Operator helps to combine two select statements and returns the records which are common to both the select statements.
-```
+```sql
 SELECT * FROM Student_Details1
 INTERSECT
 SELECT * FROM Student_Details2;
@@ -630,13 +630,13 @@ RESULT
   is a virtual table based on the result of an sql Statement.
 ## CREATE VIEW - Creates a virtual table whose contents (columns and rows) are defined by a query. Use this statement to create a view of the data in one or more tables in the database.
 
-```
+```sql
 CREATE VIEW female_employees AS
 SELECT * FROM employee
 WHERE e_gender = 'female';
 ```
 For checking the view 
-```
+```sql
 SELECT * FROM female_employees;
 ```
 RESULT
@@ -646,21 +646,21 @@ RESULT
 ```
 ## DROP VIEW - command deletes a view
 
-```
+```sql
 DROP VIEW female_employees;
 ```
 For checking the view exist or not
-```
+```sql
 SELECT * FROM female_employees;
 ```
 
 ## ALTER TABLE  Statement is use to add, delete or modify columns in the table.
 For adding the new field in the table.
-```
+```sql
 ALTER TABLE employee
 ADD e_dob date;
 ```
-```
+```sql
 SELECT * FROM employee;
 ```
 RESULT 
@@ -674,12 +674,12 @@ RESULT
 ```
 ## DROP TABLE 
 
-```
+```sql
 ALTER TABLE employee
 DROP COLUMN e_dob;
 ```
 For the checking the table.
-```
+```sql
 SELECT * FROM employee;
 ```
 ## MERGE is the combination of INSERT, DELETE and UPDATE statements.
