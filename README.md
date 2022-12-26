@@ -512,11 +512,11 @@ Here Analyst has been deleted because it mached with department loaction japan.
 
 RESULT
 ```
-1	sam     	   95000	45	Male	Operations
-2	bob	     85000	35	Male	Support
+1	sam     	   95000	45	Male	   Operations
+2	bob	        85000	35	Male	   Support
 4	sama       	 5000	25	Female  Operations
-5	boby     	  8000 	21	Female  Support
-7	mahashin   985656	22	Male	head
-8	Prince    1000000	35	Male	CEO
+5	boby     	   8000	21	Female  Support
+7	mahashin   985656	22	Male	   head
+8	Prince    1000000	35	Male	   CEO
 ```
 
