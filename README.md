@@ -653,3 +653,39 @@ For checking the view exist or not
 ```
 SELECT * FROM female_employees;
 ```
+
+## ALTER TABLE  Statement is use to add, delete or modify columns in the table.
+For adding the new field in the table.
+```
+ALTER TABLE employee
+ADD e_dob date;
+```
+```
+SELECT * FROM employee;
+```
+RESULT 
+```
+1	sam	95000	45	Male	Operations	NULL
+2	bob	85000	35	Male	Support	NULL
+4	sama	5000	25	Female	Operations	NULL
+5	boby	8000	21	Female	Support	NULL
+7	mahashin	985656	22	Male	head	NULL
+8	Prince	1000000	35	Male	CEO	NULL
+```
+## DROP TABLE 
+
+```
+ALTER TABLE employee
+DROP COLUMN e_dob;
+```
+For the checking the table.
+```
+SELECT * FROM employee;
+```
+## MERGE is the combination of INSERT, DELETE and UPDATE statements.
+
+# merge is pending
+
+
+
+
