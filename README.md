@@ -625,3 +625,31 @@ RESULT
 3	Ana	65
 4	sama	69
 ```
+
+# VIEWS
+  is a virtual table based on the result of an sql Statement.
+## CREATE VIEW - Creates a virtual table whose contents (columns and rows) are defined by a query. Use this statement to create a view of the data in one or more tables in the database.
+
+```
+CREATE VIEW female_employees AS
+SELECT * FROM employee
+WHERE e_gender = 'female';
+```
+For checking the view 
+```
+SELECT * FROM female_employees;
+```
+RESULT
+```
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+```
+## DROP VIEW
+
+```
+DROP VIEW female_employees;
+```
+For checking the view exist or not
+```
+SELECT * FROM female_employees;
+```
