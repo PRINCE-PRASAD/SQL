@@ -520,3 +520,108 @@ RESULT
 8	Prince    1000000	35	Male	CEO
 ```
 
+# Operator
+
+Create Two Table
+
+```
+CREATE TABLE Student_Details1(
+s_id int not null,
+s_name varchar(20),
+s_marks int,
+primary key(s_id),
+);
+
+insert into Student_Details1 values(
+1,'sam', 45
+);
+insert into Student_Details1 values(
+2,'bob', 89
+);
+insert into Student_Details1 values(
+3,'Ana', 65
+);
+insert into Student_Details1 values(
+4,'sama', 69
+);
+
+CREATE TABLE Student_Details2(
+s_id int not null,
+s_name varchar(20),
+s_marks int,
+primary key(s_id),
+);
+
+insert into Student_Details2 values(
+3,'Ana', 65
+);
+insert into Student_Details2 values(
+4,'sama', 69
+);
+insert into Student_Details2 values(
+5,'jai', 37
+);
+insert into Student_Details2 values(
+6,'viru', 62
+);
+```
+## Union Operator - is used to combine the data from the result of two or more SELECT command queries into a single distinct result set.
+
+```
+SELECT * FROM Student_Details1
+UNION
+SELECT * FROM Student_Details2;
+```
+RESULT
+```
+1	sam	45
+2	bob	89
+3	Ana	65
+4	sama	69
+5	jai	37
+6	viru	62
+```
+
+## Union All Operator - give all the rows from both the table including the duplicates.
+
+```
+SELECT * FROM Student_Details1
+UNION ALL
+SELECT * FROM Student_Details2;
+```
+RESULT
+```
+1	sam	45
+2	bob	89
+3	Ana	65
+4	sama	69
+3	Ana	65
+4	sama	69
+5	jai	37
+6	viru	62
+```
+
+## Except Operator - Combines two select statements and returns unique records from left query which are not part of the right query;
+
+```
+SELECT * FROM Student_Details1
+EXCEPT
+SELECT * FROM Student_Details2;
+```
+RESULT
+```
+1	sam	45
+2	bob	89
+```
+
+## INTERSECT Operator helps to combine two select statements and returns the records which are common to both the select statements.
+```
+SELECT * FROM Student_Details1
+INTERSECT
+SELECT * FROM Student_Details2;
+```
+RESULT
+```
+3	Ana	65
+4	sama	69
+```
