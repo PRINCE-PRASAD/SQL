@@ -644,7 +644,7 @@ RESULT
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
 ```
-## DROP VIEW
+## DROP VIEW - command deletes a view
 
 ```
 DROP VIEW female_employees;
