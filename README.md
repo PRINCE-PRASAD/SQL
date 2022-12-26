@@ -494,11 +494,11 @@ RESULT
 1	sam	        95000	    45	Male	Operations
 2	bob	        85000	    35	Male	Support
 3	Ana	        125000   	78	Male	Analyst
-4	sama        5000        25	Female	Operations
-5	boby	    8000    	21	Female	Support
-6	Anay    	12500	    70	Female	Analyst
-7	mahashin	985656	    22	Male	head
-8	Prince	    1000000	    35	Male	CEO
+4	sama        5000      25	Female	Operations
+5	boby	       8000     	21	Female	Support
+6	Anay       	12500	    70	Female	Analyst
+7	mahashin	   985656	   22	Male	head
+8	Prince	     1000000	  35	Male	CEO
 ```
 
 ## DELETE using Join
@@ -516,7 +516,7 @@ RESULT
 2	bob	        85000	35	Male	   Support
 4	sama       	 5000	25	Female  Operations
 5	boby     	   8000	21	Female  Support
-7	mahashin   985656	22	Male	   head
+7	mahashin    985656	22	Male	   head
 8	Prince    1000000	35	Male	   CEO
 ```
 
