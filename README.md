@@ -426,13 +426,13 @@ ON employee.e_dept=department.d_name;
 RESULT
 ```
 sam	 Operations	 Operations 	France
-bob	    Support	    Support	   Germany
-Ana	    Analyst	    Analyst	     Japan
+bob	    Support	    Support	 Germany
+Ana	    Analyst	    Analyst	 Japan
 sama Operations	 Operations 	France
-boby	Support	    Support	   Germany
-Anay	Analyst	    Analyst	     Japan
-mahashin   head	       Head  	 India
-Prince	    CEO        NULL	      NULL
+boby	   Support	    Support	 Germany
+Anay	   Analyst	    Analyst	 Japan
+mahashin   head	       Head  India
+Prince	    CEO        NULL	  NULL
 ```
 ## RIGHT JOIN return all the records from the right table and matched records from left.
 
