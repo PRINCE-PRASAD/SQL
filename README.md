@@ -884,3 +884,49 @@ INSERT INTO #student VALUES (
 );
 ```
 * Just use # before name of table it will be Temporary table.
+
+## Case Statement - helps in multi way decision making.
+Example-1
+```sql
+SELECT 
+CASE 
+WHEN 10>20 THEN '10 IS GREATER THAN 20'
+WHEN 20>10 THEN '10 IS LESS THAN 20'
+ELSE '10 IS EQUAL TO 20'
+END
+```
+Example-2
+```sql
+SELECT * FROM employee;
+```
+Result
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob
+1	sam	95000	45	Male	Operations	NULL
+2	bob	85000	35	Male	Support	NULL
+4	sama	5000	25	Female	Operations	NULL
+5	boby	8000	21	Female	Support	NULL
+7	mahashin	985656	22	Male	head	NULL
+8	Prince	1000000	35	Male	CEO	NULL
+```
+```sql
+SELECT * ,grade=
+CASE
+WHEN e_salary<50000 THEN 'C'
+WHEN e_salary<100000 THEN 'B'
+ELSE 'A'
+END 
+FROM employee
+GO
+```
+RESULT
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob	grade
+1	sam	95000	45	Male	Operations	NULL	B
+2	bob	85000	35	Male	Support	NULL	B
+4	sama	5000	25	Female	Operations	NULL	C
+5	boby	8000	21	Female	Support	NULL	C
+7	mahashin	985656	22	Male	head	NULL	A
+8	Prince	1000000	35	Male	CEO	NULL	A
+```
+
