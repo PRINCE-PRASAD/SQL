@@ -870,4 +870,17 @@ e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob
 5	boby	8000	21	Female	Support	NULL
 ```
 
+## Temporary Table - are created in tempDB and deleted as soon as the session is terminated.
 
+```sql
+CREATE TABLE #student(
+s_id INT,
+s_name varchar(20)
+);
+```
+```sql
+INSERT INTO #student VALUES (
+1, 'Suman'
+);
+```
+* Just use # before name of table it will be Temporary table.
