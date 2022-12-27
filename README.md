@@ -1050,3 +1050,54 @@ e_id	e_name	e_salary	e_age	e_gender	e_dept
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
 ```
+
+# Exception Handling 
+Exception-A error condition during a program execution is called an exception.
+
+Exception Handling - The Machanism for resolving such an exception is exception handling.
+
+## Try/catch - SQL provide Try/Catch blockes for exception handling.
+
+```SQL
+DECLARE @val1 int;
+DECLARE @val2 int;
+
+BEGIN TRY 
+SET @val1=8;
+SET @val2=@val1/0;
+END TRY
+
+BEGIN CATCH
+PRINT error_message()
+END CATCH
+```
+Result- Divide by zero error encountered.
+
+## User Defined Try/Catch
+```sql
+SELECT * FROM employee;
+```
+Result
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+7	mahashin	985656	22	Male	head
+8	Prince	1000000	35	Male	CEO
+```
+
+```sql
+BEGIN TRY 
+SELECT e_salary+e_name FROM employee
+END TRY
+
+BEGIN CATCH
+PRINT 'Cannot add a numerical value with a string'
+END CATCH
+go
+```
+Result - Cannot add a numerical value with a string.
+
+
