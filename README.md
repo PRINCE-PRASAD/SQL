@@ -800,6 +800,74 @@ e_id	e_name	e_salary	e_age	e_gender	e_dept
 8	Anay	5000	25	Female	Tech
 ```
 
+# User Defined Function
 
+## Scaler value function - always returns a scaler value function.
+
+It will take one integer value add 5 more to orignal vaule and return the updated value.
+
+```sql
+CREATE FUNCTION add_five(@num as int)
+RETURNS INT
+AS
+BEGIN
+RETURN(
+@NUM+5
+)
+END;
+```
+Implementation
+```sql
+SELECT dbo.add_five(100);
+```
+Result - 105
+
+## Table value function - returns a table.
+
+```sql
+SELECT * FROM employee;
+```
+RESULT
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob
+1	sam	95000	45	Male	Operations	NULL
+2	bob	85000	35	Male	Support	NULL
+4	sama	5000	25	Female	Operations	NULL
+5	boby	8000	21	Female	Support	NULL
+7	mahashin	985656	22	Male	head	NULL
+8	Prince	1000000	35	Male	CEO	NULL
+```
+Code for Scaler
+```sql
+CREATE FUNCTION select_gender(@gender AS VARCHAR(20))
+RETURNS TABLE
+AS
+RETURN 
+(
+SELECT * FROM employee WHERE e_gender=@gender
+)
+```
+Check for implementation
+```sql
+SELECT * FROM DBO.select_gender('Male')
+```
+Result
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob
+1	sam	95000	45	Male	Operations	NULL
+2	bob	85000	35	Male	Support	NULL
+7	mahashin	985656	22	Male	head	NULL
+8	Prince	1000000	35	Male	CEO	NULL
+```
+Check for implementation
+```sql
+SELECT * FROM DBO.select_gender('Female')
+```
+Result
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob
+4	sama	5000	25	Female	Operations	NULL
+5	boby	8000	21	Female	Support	NULL
+```
 
 
