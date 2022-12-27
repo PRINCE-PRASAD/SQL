@@ -685,7 +685,7 @@ SELECT * FROM employee;
 
 ## Merge is combination of Insert, Delete and Update At one statement.
 
-```
+```sql
 -- Table 1 
 CREATE TABLE Employee_Target(
 e_id int not null,
@@ -725,7 +725,7 @@ e_id	e_name	e_salary	e_age	e_gender	e_dept
 7	boby	8000	21	Female	Content
 8	Anay	12500	20	Female	Tech
 ```
-```
+```sql
 --  Table 2
 
 CREATE TABLE Employee_Source(
@@ -767,7 +767,7 @@ e_id	e_name	e_salary	e_age	e_gender	e_dept
 8	sama	5000	25	Male	Content 
 ```
 
-```SQL
+```sql
 MERGE Employee_Target AS T
 USING Employee_Source AS S
 ON T.e_id=S.e_id
@@ -782,10 +782,12 @@ THEN DELETE;
 Condition-  source e_id = Target e_id 
 * If matched it update e_age, e_salary accordiing to the source table. 
 * If not match then 
+
 **  Extra data Avilable on Source table added to the target table and
+
 **  Extra data avilable on the Target table has been deleted.
 * All the changes apper in the target table.
-```SQL
+```sql
 SELECT * FROM Employee_Target; 
 ```
 RESULT for Target Table
