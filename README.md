@@ -725,9 +725,9 @@ e_id	e_name	e_salary	e_age	e_gender	e_dept
 7	boby	8000	21	Female	Content
 8	Anay	12500	20	Female	Tech
 ```
+
 ```sql
 --  Table 2
-
 CREATE TABLE Employee_Source(
 e_id int not null,
 e_name varchar(20),
@@ -785,6 +785,7 @@ Condition-  source e_id = Target e_id
  i) Extra data Avilable on Source table added to the target table and
  ii) Extra data avilable on the Target table has been deleted.
 * All the changes apper in the target table.
+
 ```sql
 SELECT * FROM Employee_Target; 
 ```
