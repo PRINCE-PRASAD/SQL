@@ -968,7 +968,6 @@ e_id	e_name	e_age	employee_generation
 8	Prince	35	Old Employee
 ```
 # Stored Procedure in sql 
-## STORED PROCEDURE is a prepared sql code which can be saved and reused.(Without Parameter)
 
 ```sql
 SELECT * FROM employee;
@@ -983,7 +982,7 @@ e_id	e_name	e_salary	e_age	e_gender	e_dept
 7	mahashin	985656	22	Male	head
 8	Prince	1000000	35	Male	CEO
 ```
-
+## STORED PROCEDURE is a prepared sql code which can be saved and reused.(Without Parameter)
 Example-1
 
 For creation of the procedure
@@ -1030,4 +1029,24 @@ e_id	e_name	e_salary	e_age	e_gender	e_dept
 5	boby	8000	21	Female	Support
 7	mahashin	985656	22	Male	head
 8	Prince	1000000	35	Male	CEO
+```
+## Stored Procedure with parameter Syntax
+
+```sql
+CREATE PROCEDURE employee_gender @gender VARCHAR(20)
+AS
+SELECT * FROM employee
+WHERE e_gender=@gender
+GO
+```
+For execusion
+
+```sql
+EXEC employee_gender @gender='Female';
+```
+Result
+```sql
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
 ```
