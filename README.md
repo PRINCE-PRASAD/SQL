@@ -930,3 +930,104 @@ e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob	grade
 8	Prince	1000000	35	Male	CEO	NULL	A
 ```
 
+## IIF() function is an alternative for the case staement 
+Example-1
+```sql
+SELECT 
+IIF(10>20,'10 is grater than 20','10 is lesser than 20');
+```
+Result
+```
+10 is lesser than 20
+```
+Example-2
+```sql
+SELECT * FROM employee;
+```
+Result
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+7	mahashin	985656	22	Male	head
+8	Prince	1000000	35	Male	CEO
+```
+```sql
+SELECT e_id,e_name,e_age, IIF(e_age>30,'Old Employee','Young Employee') AS employee_generation FROM employee;
+```
+Result
+```
+e_id	e_name	e_age	employee_generation
+1	sam	45	Old Employee
+2	bob	35	Old Employee
+4	sama	25	Young Employee
+5	boby	21	Young Employee
+7	mahashin	22	Young Employee
+8	Prince	35	Old Employee
+```
+## Stored Procedure in sql 
+STORED PROCEDURE is a prepared sql code which can be saved and reused.
+
+```sql
+SELECT * FROM employee;
+```
+Result
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+7	mahashin	985656	22	Male	head
+8	Prince	1000000	35	Male	CEO
+```
+
+Example-1
+
+For creation of the procedure
+```sql
+CREATE PROCEDURE employee_age
+AS
+SELECT e_age FROM employee
+GO;
+```
+For execution
+```sql
+EXEC employee_age;
+```
+Result
+```sql
+e_age
+45
+35
+25
+21
+22
+35
+```
+
+Example-2
+
+For creation of the procedure of total employee details
+```sql
+CREATE PROCEDURE employee_details
+AS
+SELECT * FROM employee
+GO;
+```
+For execution 
+```sql
+EXEC employee_details;
+```
+Result
+```sql
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+7	mahashin	985656	22	Male	head
+8	Prince	1000000	35	Male	CEO
+```
