@@ -782,10 +782,8 @@ THEN DELETE;
 Condition-  source e_id = Target e_id 
 * If matched it update e_age, e_salary accordiing to the source table. 
 * If not match then 
-
-**  Extra data Avilable on Source table added to the target table and
-
-**  Extra data avilable on the Target table has been deleted.
+ i) Extra data Avilable on Source table added to the target table and
+ ii) Extra data avilable on the Target table has been deleted.
 * All the changes apper in the target table.
 ```sql
 SELECT * FROM Employee_Target; 
