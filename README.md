@@ -1100,4 +1100,132 @@ go
 ```
 Result - Cannot add a numerical value with a string.
 
+# Transaction in SQL
+Transaction is a group of command that change data stored in database.
+* Transation is created as one single unit.
+* Transation ensure that all of the command run succesfully either non of these.
+* If any one of the command under transation fails then any changes happens in data will rollback to its original form.
+* If all of the command under the transation run sucessfully then it will be commited.
 
+```sql
+SELECT * FROM employee;
+```
+Result
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+7	mahashin	985656	22	Male	head
+8	Prince	1000000	35	Male	CEO
+```
+Example-1
+```sql
+BEGIN TRANSACTION
+UPDATE employee SET e_age=30 WHERE e_name='sam'
+```
+```sql
+SELECT * FROM employee;
+```
+Result
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+1	sam	95000	30	Male	Operations
+2	bob	85000	35	Male	Support
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+7	mahashin	985656	22	Male	head
+8	Prince	1000000	35	Male	CEO
+```
+If we provide rollback command it will get back to orignal form
+```sql
+ROLLBACK TRANSACTION
+```
+Result
+```
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+7	mahashin	985656	22	Male	head
+8	Prince	1000000	35	Male	CEO
+```
+But if we use commit command instead of rollback change will be permanent.
+```sql
+COMMIT TRANSACTION
+```
+Result
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+1	sam	95000	30	Male	Operations
+2	bob	85000	35	Male	Support
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+7	mahashin	985656	22	Male	head
+8	Prince	1000000	35	Male	CEO
+```
+Example - 2 with Try catch method.
+
+## Part - 1
+```sql
+BEGIN TRY
+BEGIN TRANSACTION
+UPDATE employee SET e_salary=50 where e_gender='Male'
+UPDATE employee SET e_salary=195/0 where e_gender='Female'
+COMMIT TRANSACTION
+PRINT 'Transation is committed'
+END TRY
+BEGIN CATCH
+ROLLBACK TRANSACTION
+PRINT 'Transation is rollbacked'
+end catch
+```
+Result- Transation is rollbacked
+
+Reason for Rollback is anynumber cannot divided by zero.(see the case of female in line-4)
+
+```sql
+SELECT * FROM employee;
+```
+Result
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+7	mahashin	985656	22	Male	head
+8	Prince	1000000	35	Male	CEO
+```
+## Part - 2
+```sql
+BEGIN TRY
+BEGIN TRANSACTION
+UPDATE employee SET e_salary=50 where e_gender='Male'
+UPDATE employee SET e_salary=195 where e_gender='Female'
+COMMIT TRANSACTION
+PRINT 'Transation is committed'
+END TRY
+BEGIN CATCH
+ROLLBACK TRANSACTION
+PRINT 'Transation is rollbacked'
+end catch
+```
+Result - Transation is committed.
+
+Reason - Error not found.
+
+```sql
+SELECT * FROM employee;
+```
+Result
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+1	sam	50	45	Male	Operations
+2	bob	50	35	Male	Support
+4	sama	195	25	Female	Operations
+5	boby	195	21	Female	Support
+7	mahashin	50	22	Male	head
+8	Prince	50	35	Male	CEO
+```
