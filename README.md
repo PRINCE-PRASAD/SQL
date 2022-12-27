@@ -682,9 +682,122 @@ For the checking the table.
 ```sql
 SELECT * FROM employee;
 ```
-## MERGE is the combination of INSERT, DELETE and UPDATE statements.
 
-# merge is pending
+## Merge is combination of Insert, Delete and Update At one statement.
+
+```
+-- Table 1 
+CREATE TABLE Employee_Target(
+e_id int not null,
+e_name varchar(20),
+e_salary int,
+e_age int,
+e_gender varchar(20),
+e_dept varchar(20),
+primary key(e_id),
+);
+insert into Employee_Target values(
+1,'sam', 93000, 40, 'Male', 'Operations'
+);
+insert into Employee_Target values(
+2,'bob', 85000, 35, 'Male', 'Support'
+);
+insert into Employee_Target values(
+3,'Ana', 130000, 25, 'Male', 'Analyst'
+);
+insert into Employee_Target values(
+6,'sama', 5000, 25, 'Female', 'Operations'
+);
+insert into Employee_Target values(
+7,'boby', 8000, 21, 'Female', 'Content'
+);
+insert into Employee_Target values(
+8,'Anay', 12500, 20, 'Female', 'Tech'
+);
+```
+RESULT
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+1	sam	93000	40	Male	Operations
+2	bob	85000	35	Male	Support
+3	Ana	130000	25	Male	Analyst
+6	sama	5000	25	Female	Operations
+7	boby	8000	21	Female	Content
+8	Anay	12500	20	Female	Tech
+```
+```
+--  Table 2
+
+CREATE TABLE Employee_Source(
+e_id int not null,
+e_name varchar(20),
+e_salary int,
+e_age int,
+e_gender varchar(20),
+e_dept varchar(20),
+primary key(e_id),
+);
+insert into Employee_Source values(
+1,'sam', 95000, 45, 'Male', 'Operations'
+);
+insert into Employee_Source values(
+2,'bob', 85000, 35, 'Male', 'Support'
+);
+insert into Employee_Source values(
+3,'Ana', 125000, 28, 'Male', 'Analyst'
+);
+insert into Employee_Source values(
+4,'mahashin', 985656, 22, 'Male', 'Analyst'
+);
+insert into Employee_Source values(
+5,'Matt', 80000, 22, 'Male', 'Sales'
+);
+insert into Employee_Source values(
+8,'sama', 5000, 25, 'Male', 'Content'
+);
+```
+RESULT
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+3	Ana	125000	28	Male	Analyst
+4	mahashin	985656	22	Male	Analyst
+5	Matt	80000	22	Male	Sales
+8	sama	5000	25	Male	Content 
+```
+
+```SQL
+MERGE Employee_Target AS T
+USING Employee_Source AS S
+ON T.e_id=S.e_id
+WHEN MATCHED
+THEN UPDATE SET T.e_salary=S.e_salary, T.e_age=S.e_age
+WHEN NOT MATCHED BY TARGET
+THEN INSERT (e_id,e_name,e_salary,e_age,e_gender,e_dept)
+VALUES(S.e_id,S.e_name,S.e_salary,S.e_age,S.e_gender,S.e_dept)
+WHEN NOT MATCHED BY SOURCE 
+THEN DELETE;
+```
+Condition-  source e_id = Target e_id 
+* If matched it update e_age, e_salary accordiing to the source table. 
+* If not match then 
+**  Extra data Avilable on Source table added to the target table and
+**  Extra data avilable on the Target table has been deleted.
+* All the changes apper in the target table.
+```SQL
+SELECT * FROM Employee_Target; 
+```
+RESULT for Target Table
+```
+e_id	e_name	e_salary	e_age	e_gender	e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+3	Ana	125000	28	Male	Analyst
+4	mahashin	985656	22	Male	Analyst
+5	Matt	80000	22	Male	Sales
+8	Anay	5000	25	Female	Tech
+```
 
 
 
