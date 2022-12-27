@@ -967,8 +967,8 @@ e_id	e_name	e_age	employee_generation
 7	mahashin	22	Young Employee
 8	Prince	35	Old Employee
 ```
-## Stored Procedure in sql 
-STORED PROCEDURE is a prepared sql code which can be saved and reused.
+# Stored Procedure in sql 
+## STORED PROCEDURE is a prepared sql code which can be saved and reused.(Without Parameter)
 
 ```sql
 SELECT * FROM employee;
