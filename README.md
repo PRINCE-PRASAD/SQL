@@ -1,4 +1,15 @@
-# Structured Query Language
+<div align="center">
+  <h1>Structured Query Language</h1>
+</div>   
+
+<p align="center">
+<a href="https://github.com/PRINCE-PRASAD/"><img src="https://img.shields.io/github/workflow/status/dwyl/auth_plug/Elixir%20CI?label=build&style=flat-square&logo=github"></a>
+<a href="https://github.com/PRINCE-PRASAD/"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
+<a href="https://github.com/PRINCE-PRASAD/"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"></a>
+</p>   
+
+This is my curate list of all the sql basic to advanced concept and question with their Tag. 
+
 ## Page Layout
     
     ├── Introduction                  
@@ -1549,3 +1560,8 @@ e_id	e_name	e_salary e_age	e_gender e_dept
 7	mahashin 50	22	Male	head
 8	Prince	50	35	Male	CEO
 ```
+
+## Let's Connect
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/prince-prasad/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/PRINCE__PRASAD)
+[![github](https://img.shields.io/badge/github-3d4653?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PRINCE-PRASAD)
