@@ -222,9 +222,22 @@ SELECT * FROM employee;
 ```sql
 SELECT DISTINCT e_gender FROM employee;
 ```
+Result 
+```
+e_gender
+Female
+Male
+```
 ## For Filter the Record(Values) from the all table
 ```sql
 SELECT * FROM employee WHERE e_gender = 'female';
+```
+Result 
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+6	Anay	12500	20	Female	Analyst
 ```
 (it will show only female gender)
 ```sql
@@ -235,19 +248,66 @@ SELECT * FROM employee WHERE e_salary >10000 ;
 ## SELECT/SHOW ONLY IF BOTH CONDITION ARE TRUE (AND)
 ```sql
 SELECT * FROM employee WHERE e_gender='Male' AND e_age<30;
+```
+Result
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+3	Ana	125000	  28	Male	Analyst
+7    mahashin	985656	  22	Male	head
+```
+```sql
 SELECT * FROM employee WHERE e_dept='Analyst' AND e_salary>100000;
+```
+Result
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+3	Ana	125000	28	Male	Analyst
 ```
 
 ## SELECT/SHOW IF ANY ONE OF THE CONDITION TRUE (OR)
 ```sql
 SELECT * FROM employee WHERE e_dept='Analyst' OR e_dept='Operations';
+```
+Result
+```
+1	sam	95000	45	Male	Operations
+3	Ana	125000	28	Male	Analyst
+4	sama	5000	25	Female	Operations
+6	Anay	12500	20	Female	Analyst
+```
+```sql
 SELECT * FROM employee WHERE e_salary>100000 OR e_age<30;
+```
+Result
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+3	Ana	125000	28	Male	Analyst
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+6	Anay	12500	20	Female	Analyst
+7      mahashin 985656	22	Male	head
 ```
 
 ## SELECT/SHOW ONLY IF CONDITION ARE NOT TRUE (NOT)
 ```sql
 SELECT * FROM employee WHERE NOT e_gender='Female';
-SELECT * FROM employee WHERE NOT e_age<30 ;
+```
+Result
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+3	Ana	125000	28	Male	Analyst
+7    mahashin	985656	22	Male	head
+```
+```sql
+SELECT * FROM employee WHERE NOT e_age<30;
+```
+Result
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
 ```
 
 ## LIKE Operator used to extract records where a particular pattern is present
@@ -255,42 +315,112 @@ SELECT * FROM employee WHERE NOT e_age<30 ;
 Here '%' and ' _ ' are wild card characters '%' Represents Zero, one or Multiple Characters and ' _ ' Represents Single characters.
 ```sql
 SELECT * FROM employee WHERE e_name LIKE 'B%';
-SELECT * FROM employee WHERE e_age LIKE '3_';
+```
+Result 
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+2	bob	85000	35	Male	Support
+5	boby	8000	21	Female	Support
 ```
 
+```sql
+SELECT * FROM employee WHERE e_age LIKE '3_';
+```
+Result 
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+2	bob	85000	35	Male	Support
+```
 ## Between Operator is used to select values with in a Range.
 ```sql
 SELECT * FROM employee WHERE e_salary BETWEEN 50000 AND 100000;
+```
+Result 
+```
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+```
+```sql
 SELECT * FROM employee WHERE e_age BETWEEN 25 AND 30;
+```
+Result 
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+3	Ana	125000	28	Male	Analyst
+4	sama	5000	25	Female	Operations
 ```
 # FUNCTIONS
 
 ## MIN() functions gives you the smallest value From record of particular fields.
 ```sql
 SELECT MIN(e_age) FROM employee;
+```
+Result
+```
+20
+```
+```sql
 SELECT MIN(e_salary) FROM employee;
+```
+Result
+```
+5000
 ```
 
 ## MAX() functions gives you the Biggest value From record of particular fields.
 ```sql
 SELECT MAX(e_age) FROM employee;
+```
+Result
+```
+45
+```
+```sql
 SELECT MAX(e_salary) FROM employee;
+```
+Result
+```
+985656
 ```
 
 ## COUNT() Function returns the number of rows match the specific criteria
 ```sql
 SELECT COUNT(*) FROM employee WHERE e_gender = 'male';
+```
+Result
+```
+4
+```
+```sql
 SELECT COUNT(*) FROM employee WHERE e_gender = 'Female';
+```
+Result
+```
+3
 ```
 
 ## SUM() function gives the total sum of numeric column
 ```sql
 SELECT SUM(e_salary) FROM employee;
 ```
+Result
+```
+1316156
+```
 ## AVG() Function gives the average value of numeric column
 ```sql
 SELECT AVG(e_age) FROM employee;
+```
+Result
+```
+28
+```
+```sql
 SELECT AVG(e_salary) FROM employee;
+```
+Result
+```
+188022
 ```
 
 # String Function
@@ -306,23 +436,26 @@ SELECT LTRIM('     SPARTA');
 SELECT 'THIS IS TOTALLY DONE FOR PRINCE';
 SELECT LOWER('THIS IS TOTALLY DONE FOR PRINCE');
 ```
+Result - this is totally done for prince
 ## UPPER() Converts all the characters to upper case letters
 ```sql
 SELECT 'this is totally done for prince';
 SELECT UPPER('this is totally done for prince');
 ```
+Result - this is totally done for prince
 ## REVERSE() Converts all the characters in the string
 ```sql
 SELECT 'i love coding';
 SELECT REVERSE('i love coding');
 ```
+Result - gnidoc evol i
 ## SUBSTRING() Give a substring from the orignal string
 ```sql
 SELECT 'i love coding';
 SELECT SUBSTRING('i love coding',8,13);
 --We get the result coding
 ```
-
+Result - coding
 
 # CLAUSE
 
@@ -332,28 +465,30 @@ SELECT * FROM employee ORDER BY e_salary;
 -- BY DEFAULT IT IS ASSENDING ORDER 
 ```
 RESULT
-```SQL
-4	suman   	5000	36	female	Operations
-6	Aniy    	12500	23	Male	Analyst
-2	bob     	85000	35	Male	Support
-5	boby    	95000	25	Female	Support
-1	sam     	95000	45	Male	Operations
-3	Ana     	125000	28	Male	Analyst
-7	mahashin	985656	22	Male	head
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+6	Anay	12500	20	Female	Analyst
+2	bob	85000	35	Male	Support
+1	sam	95000	45	Male	Operations
+3	Ana	125000	28	Male	Analyst
+7	mahashin 985656	22	Male	head
 ```
 ```SQL
 SELECT * FROM employee ORDER BY e_salary DESC;
 ```
 
 RESULT
-```SQL
-7	mahashin	985656   22	Male	head
-3	Ana         125000   28	Male	Analyst
-1	sam	     95000	45	Male	Operations
-5	boby	    95000	25	Female  Support
-2	bob	     85000	35	Male	Support
-6	Aniy	    12500	23	Male	Analyst
-4	suman        5000	36	female  Operations
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+7	mahashin 985656	22	Male	head
+3	Ana	125000	28	Male	Analyst
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+6	Anay	12500	20	Female	Analyst
+5	boby	8000	21	Female	Support
+4	sama	5000	25	Female	Operations
 ```
 
 ## TOP is use to fetch top n(number) records
@@ -362,9 +497,10 @@ SELECT TOP 3 * FROM employee;
 ```
 RESULT
 ```
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	95000	45	Male	Operations
 2	bob	85000	35	Male	Support
-3	Ana	125000   28	Male	Analyst
+3	Ana	125000	28	Male	Analyst
 ```
 
 EXAMPLE FOR BOTH 'ORDER BY' AND 'TOP' CLAUSE
@@ -373,10 +509,11 @@ EXAMPLE FOR BOTH 'ORDER BY' AND 'TOP' CLAUSE
 SELECT TOP 3 * FROM employee ORDER BY e_age DESC;
 ```
 RESULT
-```SQL
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	95000	45	Male	Operations
-4	suman   5000	36	female  Operations
 2	bob	85000	35	Male	Support
+3	Ana	125000	28	Male	Analyst
 ```
 
 ## GROUP BY is used to get aggregate result with respect to a group.
@@ -385,18 +522,20 @@ RESULT
 SELECT AVG(e_salary), e_gender FROM employee GROUP BY e_gender;
 ```
 RESULT
-```SQL
- 50000	female
-260631	  Male
+```
+(No column name) e_gender
+8500	Female
+322664	Male
 ```
 ```SQL
 SELECT AVG(e_age), e_dept FROM employee GROUP BY e_dept ORDER BY AVG(e_age)DESC;
 ```
 RESULT
-```SQL
-40	Operations
-30	Support
-25	Analyst
+```
+(No column name)	e_dept
+35	Operations
+28	Support
+24	Analyst
 22	head
 ```
 
@@ -408,10 +547,11 @@ SELECT e_dept, AVG(e_salary) AS avg_salary FROM employee GROUP BY e_dept HAVING 
 ```
 RESULT 
 ```SQL
-Analyst 	 68750
-head    	985656
-Operations   50000
-Support 	 90000
+e_dept 	avg_salary
+Analyst	   68750
+head	  985656
+Operations 50000
+Support	   46500
 ```
 
 # Statement
@@ -424,13 +564,14 @@ UPDATE employee SET e_salary=50000;
 SELECT * FROM employee;
 ```
 RESULT
-```SQL
-1	sam	  50000	42	Male	Operations
-2	bob	  50000	35	Male	Support
-3	Ana	  50000	28	Male	Analyst
-4	suman    50000	36	female  tech
-5	boby     50000	25	Female  tech
-6	Aniy     50000	23	Male	Analyst
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+1	sam	50000	42	Male	Operations
+2	bob	50000	35	Male	Support
+3	Ana	50000	28	Male	Analyst
+4	sama	50000	25	Female	tech
+5	boby	50000	21	Female	tech
+6	Anay	50000	20	Female	tech
 7	mahashin 50000	22	Male	head
 ```
 
