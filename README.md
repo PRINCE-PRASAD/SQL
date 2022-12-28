@@ -48,6 +48,7 @@
              ├──Create Views
              ├── Drop Views
      ├── Alter Table
+     ├── Drop column
      ├── Drop Table
      ├── Merge Statement
      ├── User Defined Function
@@ -81,6 +82,7 @@
 * [Operator in SQL](#operator-in-sql)
 * [Views](#views)
 * [Alter Table](#alter-table)
+* [Drop Column](#drop-column)
 * [Drop Table](#drop-table)
 * [Merge Statement](#merge-statement)
 * [User Defined Function](#user-defined-function)
@@ -976,15 +978,26 @@ e_id	e_name	e_salary e_age	e_gender e_dept    e_dob
 7	mahashin 985656	22	Male	head        NULL
 8	Prince	1000000	35	Male	CEO         NULL
 ```
-# Drop Table 
+# Drop Column 
 
 ```sql
 ALTER TABLE employee
 DROP COLUMN e_dob;
 ```
-For the checking the table.
+RESULT 
+```
+e_id	e_name	e_salary e_age	e_gender e_dept 
+1	sam	95000	45	Male	Operations  
+2	bob	85000	35	Male	Support     
+4	sama	5000	25	Female	Operations  
+5	boby	8000	21	Female	Support     
+7	mahashin 985656	22	Male	head        
+8	Prince	1000000	35	Male	CEO         
+```
+# Drop Table
+## The DROP TABLE statement is used to drop an existing table in a database.
 ```sql
-SELECT * FROM employee;
+DROP TABLE employee;
 ```
 # Merge Statement
 ## Merge is combination of Insert, Delete and Update At one statement.
@@ -1021,7 +1034,7 @@ insert into Employee_Target values(
 ```
 RESULT
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	93000	40	Male	Operations
 2	bob	85000	35	Male	Support
 3	Ana	130000	25	Male	Analyst
@@ -1062,13 +1075,13 @@ insert into Employee_Source values(
 ```
 RESULT
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	95000	45	Male	Operations
 2	bob	85000	35	Male	Support
 3	Ana	125000	28	Male	Analyst
-4	mahashin	985656	22	Male	Analyst
+4	mahashin 985656	22	Male	Analyst
 5	Matt	80000	22	Male	Sales
-8	sama	5000	25	Male	Content 
+8	sama	5000	25	Male	Content
 ```
 
 ```sql
@@ -1095,11 +1108,11 @@ SELECT * FROM Employee_Target;
 ```
 RESULT for Target Table
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	95000	45	Male	Operations
 2	bob	85000	35	Male	Support
 3	Ana	125000	28	Male	Analyst
-4	mahashin	985656	22	Male	Analyst
+4	mahashin 985656	22	Male	Analyst
 5	Matt	80000	22	Male	Sales
 8	Anay	5000	25	Female	Tech
 ```
@@ -1133,13 +1146,13 @@ SELECT * FROM employee;
 ```
 RESULT
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob
-1	sam	95000	45	Male	Operations	NULL
-2	bob	85000	35	Male	Support	NULL
-4	sama	5000	25	Female	Operations	NULL
-5	boby	8000	21	Female	Support	NULL
-7	mahashin	985656	22	Male	head	NULL
-8	Prince	1000000	35	Male	CEO	NULL
+e_id	e_name	e_salary e_age	e_gender e_dept	
+1	sam	95000	45	Male	Operations	
+2	bob	85000	35	Male	Support	
+4	sama	5000	25	Female	Operations	
+5	boby	8000	21	Female	Support	
+7	mahashin 985656	22	Male	head	
+8	Prince	1000000	35	Male	CEO	
 ```
 Code for Scaler
 ```sql
@@ -1157,11 +1170,11 @@ SELECT * FROM DBO.select_gender('Male')
 ```
 Result
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob
-1	sam	95000	45	Male	Operations	NULL
-2	bob	85000	35	Male	Support	NULL
-7	mahashin	985656	22	Male	head	NULL
-8	Prince	1000000	35	Male	CEO	NULL
+e_id	e_name	e_salary e_age	e_gender e_dept	
+1	sam	95000	45	Male	Operations	
+2	bob	85000	35	Male	Support
+7	mahashin 985656	22	Male	head	
+8	Prince	1000000	35	Male	CEO	
 ```
 Check for implementation
 ```sql
@@ -1169,9 +1182,9 @@ SELECT * FROM DBO.select_gender('Female')
 ```
 Result
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob
-4	sama	5000	25	Female	Operations	NULL
-5	boby	8000	21	Female	Support	NULL
+e_id	e_name	e_salary e_age	e_gender e_dept	
+4	sama	5000	25	Female	Operations	
+5	boby	8000	21	Female	Support	
 ```
 
 # Temporary Table
@@ -1207,13 +1220,13 @@ SELECT * FROM employee;
 ```
 Result
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob
-1	sam	95000	45	Male	Operations	NULL
-2	bob	85000	35	Male	Support	NULL
-4	sama	5000	25	Female	Operations	NULL
-5	boby	8000	21	Female	Support	NULL
-7	mahashin	985656	22	Male	head	NULL
-8	Prince	1000000	35	Male	CEO	NULL
+e_id	e_name	e_salary e_age	e_gender e_dept	
+1	sam	95000	45	Male	Operations	
+2	bob	85000	35	Male	Support	
+4	sama	5000	25	Female	Operations	
+5	boby	8000	21	Female	Support	
+7	mahashin 985656	22	Male	head	
+8	Prince	1000000	35	Male	CEO	
 ```
 ```sql
 SELECT * ,grade=
@@ -1227,13 +1240,13 @@ GO
 ```
 RESULT
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob	grade
-1	sam	95000	45	Male	Operations	NULL	B
-2	bob	85000	35	Male	Support	NULL	B
-4	sama	5000	25	Female	Operations	NULL	C
-5	boby	8000	21	Female	Support	NULL	C
-7	mahashin	985656	22	Male	head	NULL	A
-8	Prince	1000000	35	Male	CEO	NULL	A
+e_id	e_name	e_salary e_age	e_gender e_dept	   grade
+1	sam	95000	45	Male	Operations   B
+2	bob	85000	35	Male	Support	     B
+4	sama	5000	25	Female	Operations   C
+5	boby	8000	21	Female	Support      C
+7	mahashin 985656	22	Male	head         A
+8	Prince	1000000	35	Male	CE           A
 ```
 
 # IIF()
@@ -1253,12 +1266,12 @@ SELECT * FROM employee;
 ```
 Result
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	95000	45	Male	Operations
 2	bob	85000	35	Male	Support
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
-7	mahashin	985656	22	Male	head
+7	mahashin 985656	22	Male	head
 8	Prince	1000000	35	Male	CEO
 ```
 ```sql
@@ -1271,7 +1284,7 @@ e_id	e_name	e_age	employee_generation
 2	bob	35	Old Employee
 4	sama	25	Young Employee
 5	boby	21	Young Employee
-7	mahashin	22	Young Employee
+7	mahashin 22	Young Employee
 8	Prince	35	Old Employee
 ```
 # Stored Procedure in SQL
@@ -1281,12 +1294,12 @@ SELECT * FROM employee;
 ```
 Result
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	95000	45	Male	Operations
 2	bob	85000	35	Male	Support
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
-7	mahashin	985656	22	Male	head
+7	mahashin 985656	22	Male	head
 8	Prince	1000000	35	Male	CEO
 ```
 ## STORED PROCEDURE is a prepared sql code which can be saved and reused.(Without Parameter)
@@ -1328,13 +1341,13 @@ For execution
 EXEC employee_details;
 ```
 Result
-```sql
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	95000	45	Male	Operations
 2	bob	85000	35	Male	Support
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
-7	mahashin	985656	22	Male	head
+7	mahashin 985656	22	Male	head
 8	Prince	1000000	35	Male	CEO
 ```
 ## Stored Procedure with parameter Syntax
@@ -1353,7 +1366,7 @@ EXEC employee_gender @gender='Female';
 ```
 Result
 ```sql
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+e_id	e_name	e_salary e_age	e_gender e_dept
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
 ```
@@ -1386,12 +1399,12 @@ SELECT * FROM employee;
 ```
 Result
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	95000	45	Male	Operations
 2	bob	85000	35	Male	Support
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
-7	mahashin	985656	22	Male	head
+7	mahashin 985656	22	Male	head
 8	Prince	1000000	35	Male	CEO
 ```
 
@@ -1419,12 +1432,12 @@ SELECT * FROM employee;
 ```
 Result
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	95000	45	Male	Operations
 2	bob	85000	35	Male	Support
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
-7	mahashin	985656	22	Male	head
+7	mahashin 985656	22	Male	head
 8	Prince	1000000	35	Male	CEO
 ```
 Example-1
@@ -1437,12 +1450,12 @@ SELECT * FROM employee;
 ```
 Result
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	95000	30	Male	Operations
 2	bob	85000	35	Male	Support
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
-7	mahashin	985656	22	Male	head
+7	mahashin 985656	22	Male	head
 8	Prince	1000000	35	Male	CEO
 ```
 If we provide rollback command it will get back to orignal form
@@ -1455,7 +1468,7 @@ Result
 2	bob	85000	35	Male	Support
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
-7	mahashin	985656	22	Male	head
+7	mahashin 985656	22	Male	head
 8	Prince	1000000	35	Male	CEO
 ```
 But if we use commit command instead of rollback change will be permanent.
@@ -1464,12 +1477,12 @@ COMMIT TRANSACTION
 ```
 Result
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	95000	30	Male	Operations
 2	bob	85000	35	Male	Support
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
-7	mahashin	985656	22	Male	head
+7	mahashin 985656	22	Male	head
 8	Prince	1000000	35	Male	CEO
 ```
 Example - 2 with Try catch method.
@@ -1497,12 +1510,12 @@ SELECT * FROM employee;
 ```
 Result
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	95000	45	Male	Operations
 2	bob	85000	35	Male	Support
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
-7	mahashin	985656	22	Male	head
+7	mahashin 985656	22	Male	head
 8	Prince	1000000	35	Male	CEO
 ```
 ## Part - 2
@@ -1528,11 +1541,11 @@ SELECT * FROM employee;
 ```
 Result
 ```
-e_id	e_name	e_salary	e_age	e_gender	e_dept
+e_id	e_name	e_salary e_age	e_gender e_dept
 1	sam	50	45	Male	Operations
 2	bob	50	35	Male	Support
 4	sama	195	25	Female	Operations
 5	boby	195	21	Female	Support
-7	mahashin	50	22	Male	head
+7	mahashin 50	22	Male	head
 8	Prince	50	35	Male	CEO
 ```
