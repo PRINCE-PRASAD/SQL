@@ -1,5 +1,72 @@
-# SQL
+# Structured Query Language
+## Page Layout
 
+    
+    ├── Introduction                  
+    ├── Create, Use, Delete Database 
+    ├── Create Table
+    ├── Select Statement
+    ├── Select Distinct
+    ├── Operators
+                ├── And
+                ├── Or
+                ├── Not
+                ├── Like
+                ├── Between
+    ├── Functions
+                ├── MIN()
+                ├── MAX()
+                ├── COUNT()
+                ├── SUM()
+                ├── AVG()
+    ├──  String Function
+                       ├── LTRIM()
+                       ├── Lower()
+                       ├── Upper()
+                       ├── Reverse()
+                       ├── Substring ()
+    ├── Clause
+             ├── Order By Clause
+             ├── Top Clause
+             ├── Group By Clause
+             ├── Having Clause
+    ├──Statement
+               ├── Update Statement
+               ├── Delete Statement
+               ├── Truncate Statement
+     ├── Join
+            ├── Inner join
+            ├── Left join
+            ├── Right join
+            ├── Full join
+            ├── Update and Delete using Join
+     ├── Operator
+                ├── Union Operator
+                ├── Union All Operator
+                ├── Except Operator
+                ├── Intersect Operator
+     ├── Views
+             ├──Create Views
+             ├── Drop Views
+     ├── Alter Table
+     ├── Merge Statement
+     ├── User Defined Function
+                             ├──Scaler value function
+                             ├──Table value function
+     ├── Temporary Table
+     ├── Case Statement
+     ├── IIF() Function
+     ├── Stored Procedure
+                        ├── Stored Procedure without Parameter
+                        ├──Stored Procedure with Parameter
+     ├── Exception Handling
+                          ├── Try/Catch
+                          ├── User Defined Try/Catch
+     ├── Transaction 
+                              
+
+
+# Introduction
 ## Data
 
 In computing, data is information that has been translated into a form that is efficient for movement or processing. Data can come in the form of text, observations, figures, images, numbers, graphs, or symbols. For example, data might include individual prices, weights, addresses, ages, names, temperatures, dates, or distances.
@@ -21,7 +88,7 @@ A database management system (or DBMS) is essentially nothing more than a comput
 
 SQL stands for Structured Query Language. SQL is the standard language for dealing with Relational Databases. SQL can be used to insert, search, update, and delete database records.
 
-
+# Create, Use, Delete Database 
 
 ### Create Database
 ```sql
@@ -36,9 +103,10 @@ USE [datbasename];
 ```sql
 DROP DATABASE databasename;
 ```
-### For creating fields in table
+# Create Table
+## For creating fields in table
 
-example-
+Example -
 ```sql
 CREATE TABLE employee(
 e_id int not null,
@@ -76,7 +144,7 @@ insert into employee values(
 7,'mahashin', 985656, 22, 'Male', 'head'
 );
 ```
-
+# Select Statement
 ## Show or Select the entire Record of particular fields
 ```sql
 SELECT e_name FROM employee;
@@ -91,6 +159,7 @@ SELECT e_name, e_salary, e_age FROM employee;
 ```sql
 SELECT * FROM employee;
 ```
+# Select Distinct
 ## Show or Select the Different Record(values) of particular fields
 ```sql
 SELECT DISTINCT e_gender FROM employee;
@@ -104,7 +173,7 @@ SELECT * FROM employee WHERE e_gender = 'female';
 SELECT * FROM employee WHERE e_salary >10000 ;
 ```
 (it will show only that table whoese salary more than 10000)
-
+# Operator
 ## SELECT/SHOW ONLY IF BOTH CONDITION ARE TRUE (AND)
 ```sql
 SELECT * FROM employee WHERE e_gender='Male' AND e_age<30;
@@ -197,7 +266,7 @@ SELECT SUBSTRING('i love coding',8,13);
 ```
 
 
-# 'ORDER BY' AND 'TOP' CLAUSE
+# CLAUSE
 
 ## ORDER BY is use to sort the data in ascending or descending order by default it is on asending order
 ```SQL
@@ -252,8 +321,6 @@ RESULT
 2	bob	85000	35	Male	Support
 ```
 
-# GROUP BY
-
 ## GROUP BY is used to get aggregate result with respect to a group.
 
 ```SQL 
@@ -275,7 +342,6 @@ RESULT
 22	head
 ```
 
-# HAVING Clause
 ## HAVING CLAUSE is used in combination with GROUP BY to impose the condition on groups
 
 In this Queary firstly it select the avrage salary and department and then arrange group wise salary more than 10000 
@@ -290,7 +356,7 @@ Operations   50000
 Support 	 90000
 ```
 
-# UPDATE 
+# Statement
 ## UPDATE is used to modify the existing records in a table.
 
 ```sql
@@ -310,16 +376,18 @@ RESULT
 7	mahashin 50000	22	Male	head
 ```
 
-# DELETE 
 ## DELETE statement is use to delete existing records in the table
 
 ```sql
 DELETE FROM employee where e_age=42;
 ```
-# TRUNCATE 
 ## TRUNCATE Statement deletes all the data inside the table.
 ```sql
 TRUNCATE TABLE employee;
+```
+Result
+```
+e_id	e_name	e_salary   e_age   e_gender	e_dept
 ```
 It clear only data but structure of table remain constanst.
 
@@ -654,7 +722,9 @@ For checking the view exist or not
 SELECT * FROM female_employees;
 ```
 
-## ALTER TABLE  Statement is use to add, delete or modify columns in the table.
+# ALTER TABLE 
+
+## Statement is use to add, delete or modify columns in the table.
 For adding the new field in the table.
 ```sql
 ALTER TABLE employee
@@ -682,7 +752,7 @@ For the checking the table.
 ```sql
 SELECT * FROM employee;
 ```
-
+# Merge Statement
 ## Merge is combination of Insert, Delete and Update At one statement.
 
 ```sql
@@ -885,7 +955,8 @@ INSERT INTO #student VALUES (
 ```
 * Just use # before name of table it will be Temporary table.
 
-## Case Statement - helps in multi way decision making.
+# Case Statement 
+## - helps in multi way decision making.
 Example-1
 ```sql
 SELECT 
@@ -930,7 +1001,8 @@ e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob	grade
 8	Prince	1000000	35	Male	CEO	NULL	A
 ```
 
-## IIF() function is an alternative for the case staement 
+# IIF()
+## function is an alternative for the case staement 
 Example-1
 ```sql
 SELECT 
@@ -967,7 +1039,7 @@ e_id	e_name	e_age	employee_generation
 7	mahashin	22	Young Employee
 8	Prince	35	Old Employee
 ```
-# Stored Procedure in sql 
+# Stored Procedure in SQL
 
 ```sql
 SELECT * FROM employee;
