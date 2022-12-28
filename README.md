@@ -1,6 +1,5 @@
 # Structured Query Language
 ## Page Layout
-
     
     ├── Introduction                  
     ├── Create, Use, Delete Database 
@@ -40,7 +39,7 @@
             ├── Right join
             ├── Full join
             ├── Update and Delete using Join
-     ├── Operator
+     ├── Operators in Sql
                 ├── Union Operator
                 ├── Union All Operator
                 ├── Except Operator
@@ -64,6 +63,31 @@
                           ├── User Defined Try/Catch
      ├── Transaction 
                               
+
+
+## Quick Links
+* [Introduction](#introduction)
+* [Create, Use, Delete Database](#create-use-delete-database)
+* [Create Table](#create-table)
+* [Select Statement](#select-statement)
+* [Select Distinct](#select-distinct)
+* [Operators](#operator)
+* [Functions](#functions)
+* [String Function](#string-function)
+* [Clause](#clause)
+* [Statement](#statement)
+* [Join](#join)
+* [Operator in SQL](#operator-in-sql)
+* [Views](#views)
+* [Alter Table](#alter-table)
+* [Merge Statement](#merge-statement)
+* [User Defined Function](#user-defined-function)
+* [Temporary Table](#temporary-table)
+* [Case Statement](#case-statement)
+* [IIF() Function](#iif)
+* [Stored Procedure](#stored-procedure-in-sql)
+* [Exception Handling](#exception-handling)
+* [Transaction](#transaction-in-sql)
 
 
 # Introduction
@@ -588,7 +612,7 @@ RESULT
 8	Prince    1000000	35	Male	CEO
 ```
 
-# Operator
+# Operator in SQL
 
 Create Two Table
 
@@ -940,7 +964,8 @@ e_id	e_name	e_salary	e_age	e_gender	e_dept	e_dob
 5	boby	8000	21	Female	Support	NULL
 ```
 
-## Temporary Table - are created in tempDB and deleted as soon as the session is terminated.
+# Temporary Table
+### are created in tempDB and deleted as soon as the session is terminated.
 
 ```sql
 CREATE TABLE #student(
