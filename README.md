@@ -591,7 +591,7 @@ e_id	e_name	e_salary   e_age   e_gender	e_dept
 It clear only data but structure of table remain constanst.
 
 # JOIN
-
+![This is a alt text.](/Image/join.png "Example of Joins.")
 First create two table
 
 ```sql
@@ -624,6 +624,17 @@ insert into department values(
 insert into department values(
 7,'Client', 'Pakistan'
 );
+```
+Result
+```
+d_id	d_name	     d_location
+1	Operations    	France
+2	Support	        Germany
+3	Analyst	         Japan
+4	Head	         India
+5	Tester         	USA
+6	Security   	China
+7	Client  	Pakistan
 ```
 ```sql
 --Table-2
@@ -662,6 +673,18 @@ insert into employee values(
 8,'Prince', 1000000, 35, 'Male', 'CEO'
 );
 ```
+Result
+```
+e_id	e_name	e_salary e_age	e_gender e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+3	Ana	125000	28	Male	Analyst
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+6	Anay	12500	20	Female	Analyst
+7	mahashin 985656	22	Male	head
+8	Prince	1000000	35	Male	CEO
+```
 
 ## INNER JOIN returns records that have matching values in both the table. It is also known as simple join.
 
@@ -674,13 +697,14 @@ ON employee.e_dept=department.d_name;
 ```
 RESULT
 ```
-sam	    Operations     Operations 	France
-bob	    Support	    Support	    Germany
-Ana	    Analyst	    Analyst	    Japan
-sama       Operations	 Operations 	France
-boby       Support	    Support	    Germany
-Anay       Analyst	    Analyst	    Japan
-mahashin   head	       Head	       India
+e_name	e_dept      d_name   d_location
+sam	Operations Operations	France
+bob	Support     Support	Germany
+Ana	Analyst     Analyst	Japan
+sama	Operations  Operations	France
+boby	Support     Support	Germany
+Anay	Analyst     Analyst	Japan
+mahashin head        Head	India
 ```
 ## LEFT JOIN returns all the records from the left table, and the matched records from the right table.
 
@@ -692,14 +716,15 @@ ON employee.e_dept=department.d_name;
 ```
 RESULT
 ```
-sam	      Operations	 Operations 	France
-bob	      Support	    Support	    Germany
-Ana	      Analyst	    Analyst	    Japan
-sama      Operations	 Operations 	France
-boby	     Support	    Support	    Germany
-Anay	     Analyst	    Analyst	    Japan
-mahashin  head	       Head        India
-Prince	   CEO         NULL	       NULL
+e_name	e_dept    d_name	d_location
+sam	Operations Operations	France
+bob	Support    Support	Germany
+Ana	Analyst    Analyst	Japan
+sama	Operations Operations	France
+boby	Support  Support	Germany
+Anay	Analyst  Analyst	Japan
+mahashin head    Head   	India
+Prince   CEO     NULL   	NULL
 ```
 ## RIGHT JOIN return all the records from the right table and matched records from left.
 
@@ -711,16 +736,17 @@ ON employee.e_dept=department.d_name;
 ```
 RESULT
 ```
-sam	Operations	Operations	France
-sama   Operations	Operations	France
-bob	   Support       Support	Germany
-boby      Support	   Support	Germany
-Ana	   Analyst       Analyst	Japan
-Anay      Analyst	   Analyst	Japan
-mahash   	head      	Head	India
-NULL     	NULL	    Tester	USA
-NULL         NULL	  Security	China
-NULL     	NULL    	Client	Pakistan
+e_name	e_dept   d_name       d_location
+sam	Operations Operations	France
+sama	Operations Operations	France
+bob	Support	   Support	Germany
+boby	Support	   Support	Germany
+Ana	Analyst    Analyst	Japan
+Anay	Analyst	   Analyst  	Japan
+mahashin head	   Head	        India
+NULL	NULL	   Tester      	USA
+NULL	NULL	   Security	China
+NULL	NULL	   Client	Pakistan
 ```
 ## FULL JOIN all rows from the LEFT table and RIGHT table with NULL values in place where the join condition is not met.
 
@@ -732,17 +758,18 @@ ON employee.e_dept=department.d_name;
 ```
 RESULT
 ```
-sam	Operations	Operations	France
-bob	   Support	   Support	Germany
-Ana	   Analyst	   Analyst	Japan
-sam    Operations	Operations	France
-boby      Support   	Support	Germany
-Anay      Analyst   	Analyst	Japan
-mahashin     head      	Head	India
-Prince        CEO      	NULL	NULL
-NULL     	NULL 	   Tester    USA
-NULL     	NULL      Security	China
-NULL     	NULL        Client	Pakistan
+e_name	e_dept    d_name	d_location
+sam	Operations  Operations	France
+bob	Support     Support	Germany
+Ana	Analyst     Analyst	Japan
+sama	Operations  Operations	France
+boby	Support	    Support	Germany
+Anay	Analyst	    Analyst	Japan
+mahashin head       Head	India
+Prince	CEO         NULL	NULL
+NULL	NULL	    Tester	USA
+NULL	NULL	    Security	China
+NULL	NULL	    Client	Pakistan
 ```
 
 ## UPDATE using Join
@@ -758,14 +785,15 @@ Here Analyst age has been change because it mached with department loaction japa
 
 RESULT
 ```
-1	sam	        95000	    45	Male	Operations
-2	bob	        85000	    35	Male	Support
-3	Ana	        125000   	78	Male	Analyst
-4	sama        5000        25	Female	Operations
-5	boby	    8000    	21	Female	Support
-6	Anay    	12500	    70	Female	Analyst
-7	mahashin   	985656	    22	Male	head
-8	Prince	    1000000	    35	Male	CEO
+e_id	e_name	e_salary e_age	e_gender e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+3	Ana	125000	78	Male	Analyst
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+6	Anay	12500	70	Female	Analyst
+7	mahashin 985656	22	Male	head
+8	Prince	1000000	35	Male	CEO
 ```
 
 ## DELETE using Join
@@ -779,12 +807,13 @@ Here Analyst has been deleted because it mached with department loaction japan.
 
 RESULT
 ```
-1	sam     	95000	45	Male	Operations
-2	bob	     85000	35	Male	Support
-4	sama    	 5000	25	Female  Operations
-5	boby     	8000	21	Female  Support
-7	mahashin   985656	22	Male	head
-8	Prince    1000000	35	Male	CEO
+e_id	e_name	e_salary e_age	e_gender e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+7	mahashin 985656	22	Male	head
+8	Prince	1000000	35	Male	CEO
 ```
 
 # Operator in SQL
@@ -841,6 +870,7 @@ SELECT * FROM Student_Details2;
 ```
 RESULT
 ```
+s_id	s_name	s_marks
 1	sam	45
 2	bob	89
 3	Ana	65
@@ -858,6 +888,7 @@ SELECT * FROM Student_Details2;
 ```
 RESULT
 ```
+s_id	s_name	s_marks
 1	sam	45
 2	bob	89
 3	Ana	65
@@ -877,6 +908,7 @@ SELECT * FROM Student_Details2;
 ```
 RESULT
 ```
+s_id	s_name	s_marks
 1	sam	45
 2	bob	89
 ```
@@ -889,6 +921,7 @@ SELECT * FROM Student_Details2;
 ```
 RESULT
 ```
+s_id	s_name	s_marks
 3	Ana	65
 4	sama	69
 ```
@@ -908,6 +941,7 @@ SELECT * FROM female_employees;
 ```
 RESULT
 ```
+e_id	e_name	e_salary e_age	e_gender e_dept
 4	sama	5000	25	Female	Operations
 5	boby	8000	21	Female	Support
 ```
@@ -934,12 +968,13 @@ SELECT * FROM employee;
 ```
 RESULT 
 ```
-1	sam	95000	45	Male	Operations	NULL
-2	bob	85000	35	Male	Support	NULL
-4	sama	5000	25	Female	Operations	NULL
-5	boby	8000	21	Female	Support	NULL
-7	mahashin	985656	22	Male	head	NULL
-8	Prince	1000000	35	Male	CEO	NULL
+e_id	e_name	e_salary e_age	e_gender e_dept    e_dob
+1	sam	95000	45	Male	Operations  NULL
+2	bob	85000	35	Male	Support     NULL
+4	sama	5000	25	Female	Operations  NULL
+5	boby	8000	21	Female	Support     NULL
+7	mahashin 985656	22	Male	head        NULL
+8	Prince	1000000	35	Male	CEO         NULL
 ```
 # Drop Table 
 
