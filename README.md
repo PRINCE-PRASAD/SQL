@@ -48,6 +48,7 @@
              ├──Create Views
              ├── Drop Views
      ├── Alter Table
+     ├── Drop Table
      ├── Merge Statement
      ├── User Defined Function
                              ├──Scaler value function
@@ -80,6 +81,7 @@
 * [Operator in SQL](#operator-in-sql)
 * [Views](#views)
 * [Alter Table](#alter-table)
+* [Drop Table](#drop-table)
 * [Merge Statement](#merge-statement)
 * [User Defined Function](#user-defined-function)
 * [Temporary Table](#temporary-table)
@@ -168,17 +170,49 @@ insert into employee values(
 7,'mahashin', 985656, 22, 'Male', 'head'
 );
 ```
+Result 
+```
+e_id  e_name   e_salary	e_age	e_gender e_dept
+1	sam	95000	45	Male	Operations
+2	bob	85000	35	Male	Support
+3	Ana	125000	28	Male	Analyst
+4	sama	5000	25	Female	Operations
+5	boby	8000	21	Female	Support
+6	Anay	12500	20	Female	Analyst
+7	mahashin 985656	22	Male	head
+```
 # Select Statement
 ## Show or Select the entire Record of particular fields
 ```sql
 SELECT e_name FROM employee;
+```
+Result
+```
+e_name
+sam
+bob
+Ana
+sama
+boby
+Anay
+mahashin
 ```
 
 ## Show or Select the entire Record of multiple fields
 ```sql
 SELECT e_name, e_salary, e_age FROM employee;
 ```
-
+Result 
+```
+e_name	e_salary	e_age
+sam	95000	         45
+bob	85000	         35
+Ana	125000           28
+sama	5000	         25
+boby	8000	         21
+Anay	12500	         20
+mahashin 985656	         22
+```
 ## For Total Record and Fields of Table
 ```sql
 SELECT * FROM employee;
@@ -766,7 +800,7 @@ RESULT
 7	mahashin	985656	22	Male	head	NULL
 8	Prince	1000000	35	Male	CEO	NULL
 ```
-## DROP TABLE 
+# Drop Table 
 
 ```sql
 ALTER TABLE employee
